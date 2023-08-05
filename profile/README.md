@@ -3,4 +3,5 @@ We're a dedicated organization committed to providing top-notch programming serv
 
 
 
-![omni_cover](https://github.com/omni-tech-solutions/.github/assets/73158320/bd4ef25b-d565-40bc-8e13-f6cf1a010e9f)
+
+![omni_cover](https://github.com/omni-tech-solutions/.github/assets/73158320/556abc2c-cd69-4e53-984a-6731e90acad9)
