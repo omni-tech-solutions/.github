@@ -1,4 +1,3 @@
-# OMNI Tech Solutions
 
  Omni Tech Solutions is a technology organization that illuminates the path through the complex labyrinth of modern technologies. With our continuous pursuit of learning and innovation, we transform challenges into unique solutions using strategic thinking and creativity. Our commitment is to turn complexity into opportunities for success. 
 
