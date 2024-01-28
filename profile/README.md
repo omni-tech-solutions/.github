@@ -9,10 +9,8 @@
 
 ### Development of Web-Based Applications 🛠️
 - **Personalized solutions for web applications** 💡, aimed at enhancing business processes and user experience 🚀.
-
 ---
-
-For detailed information about our local services, please visit our website:  
+### For detailed information about our local services, please visit our website:  
 [OMNI Tech Solutions](https://omnitechsolutions.website) 🌍
 
 
