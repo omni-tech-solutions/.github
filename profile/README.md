@@ -1,15 +1,6 @@
-<a href="https://tech.omni-solutions.co">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.svg">
-    <img src="./assets/banner-light.svg" width="100%" alt="OMNI Tech Solutions: software solutions and IT infrastructure for business">
-  </picture>
-</a>
-
-<p align="center">
-  <a href="https://tech.omni-solutions.co"><b>Website</b></a> &nbsp;·&nbsp;
-  <a href="https://tech.omni-solutions.co/#services"><b>Services</b></a> &nbsp;·&nbsp;
-  <a href="https://tech.omni-solutions.co/#contact"><b>Contact</b></a>
-</p>
+<!-- #gh-light-mode-only / #gh-dark-mode-only follow the GitHub theme, not the OS setting -->
+<a href="https://tech.omni-solutions.co#gh-light-mode-only"><img src="./assets/banner-light.svg#gh-light-mode-only" width="100%" alt="OMNI Tech Solutions: software solutions and IT infrastructure for business"></a>
+<a href="https://tech.omni-solutions.co#gh-dark-mode-only"><img src="./assets/banner-dark.svg#gh-dark-mode-only" width="100%" alt="OMNI Tech Solutions: software solutions and IT infrastructure for business"></a>
 
 ## What we do
 
@@ -21,10 +12,8 @@
 
 ## How we work
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/process-dark.svg">
-  <img src="./assets/process-light.svg" width="100%" alt="How we work: 01 Consultation, 02 Quote, 03 Delivery, 04 Support">
-</picture>
+<img src="./assets/process-light.svg#gh-light-mode-only" width="100%" alt="How we work: 01 Consultation, 02 Quote, 03 Delivery, 04 Support">
+<img src="./assets/process-dark.svg#gh-dark-mode-only" width="100%" alt="How we work: 01 Consultation, 02 Quote, 03 Delivery, 04 Support">
 
 <br>
 
