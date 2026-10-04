@@ -32,6 +32,7 @@ const THEMES = {
         sec: '#59636e',
         ter: '#6e7781',
         accent: '#a86400',
+        muted: '#c4ccd4',
         glow: 0.18,
     },
     dark: {
@@ -43,6 +44,7 @@ const THEMES = {
         sec: '#b1bac4',
         ter: '#8b949e',
         accent: AMBER,
+        muted: '#4a525c',
         glow: 0.14,
     },
 };
@@ -60,13 +62,47 @@ const logo = `data:image/png;base64,${readFileSync(join(root, 'profile', 'assets
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-// Lucide-style 24×24 line icons
-const ICONS = {
-    software: '<path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/>',
-    infrastructure:
-        '<rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3M12 12V8"/>',
-    support:
-        '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+/**
+ * Line drawings for the service cells, in the website's style (AudienceSection):
+ * amber for the subject, grey for the context, on a 220×120 canvas. Amber
+ * strokes marked DRAW trace themselves in once when the image loads.
+ */
+const DRAW = 'class="draw" pathLength="1"';
+const ILLUSTRATIONS = {
+    // A site in a browser window: search bar + content skeleton
+    software: (a, m) => `
+      <rect x="20" y="10" width="180" height="100" rx="8" stroke="${m}" stroke-width="1.5"/>
+      <circle cx="32" cy="22" r="2.5" fill="${m}"/><circle cx="41" cy="22" r="2.5" fill="${m}"/><circle cx="50" cy="22" r="2.5" fill="${m}"/>
+      <rect ${DRAW} x="36" y="38" width="148" height="24" rx="6" fill="${a}" fill-opacity="0.12" stroke="${a}" stroke-width="1.5"/>
+      <circle ${DRAW} cx="50" cy="50" r="5" stroke="${a}" stroke-width="1.5"/>
+      <path ${DRAW} d="M54 54l4 4" stroke="${a}" stroke-width="1.5" stroke-linecap="round"/>
+      <rect x="66" y="45" width="80" height="10" rx="3" stroke="${a}" stroke-width="1" stroke-dasharray="3 3"/>
+      <rect x="36" y="74" width="30" height="24" rx="4" stroke="${m}" stroke-width="1.5"/>
+      <rect x="76" y="76" width="70" height="7" rx="3" stroke="${m}" stroke-width="1.5"/>
+      <rect x="76" y="89" width="108" height="7" rx="3" stroke="${m}" stroke-width="1.5"/>`,
+    // House with Wi-Fi arcs and a camera on the wall
+    infrastructure: (a, m) => `
+      <path d="M56 58 110 18l54 40v50H56z" stroke="${m}" stroke-width="1.5" stroke-linejoin="round"/>
+      <path ${DRAW} d="M92 72a26 26 0 0 1 36 0" stroke="${a}" stroke-width="1.75" stroke-linecap="round"/>
+      <path ${DRAW} d="M99 80a15 15 0 0 1 22 0" stroke="${a}" stroke-width="1.75" stroke-linecap="round"/>
+      <circle cx="110" cy="88" r="3" fill="${a}"/>
+      <rect ${DRAW} x="170" y="44" width="26" height="14" rx="4" fill="${a}" fill-opacity="0.12" stroke="${a}" stroke-width="1.5"/>
+      <path ${DRAW} d="M164 51h6" stroke="${a}" stroke-width="1.5" stroke-linecap="round"/>
+      <circle ${DRAW} cx="190" cy="51" r="2.5" stroke="${a}" stroke-width="1.25"/>
+      <path d="M24 108h172" stroke="${m}" stroke-width="1.5" stroke-dasharray="4 4"/>`,
+    // A screen with a ticked checklist, guarded by a shield
+    support: (a, m) => `
+      <rect x="22" y="14" width="112" height="76" rx="8" stroke="${m}" stroke-width="1.5"/>
+      <path d="M64 106h28M78 90v16" stroke="${m}" stroke-width="1.5" stroke-linecap="round"/>
+      <path ${DRAW} d="M36 34l4 4 8-8" stroke="${a}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+      <path ${DRAW} d="M36 52l4 4 8-8" stroke="${a}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="58" y="31" width="62" height="7" rx="3" stroke="${m}" stroke-width="1.5"/>
+      <rect x="58" y="49" width="48" height="7" rx="3" stroke="${m}" stroke-width="1.5"/>
+      <rect x="36" y="67" width="12" height="7" rx="2" stroke="${a}" stroke-width="1" stroke-dasharray="3 3"/>
+      <rect x="58" y="67" width="56" height="7" rx="3" stroke="${m}" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <path d="M134 56h14" stroke="${m}" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <path ${DRAW} d="M176 24c10 7 20 9 26 9v22c0 20-14 30-26 34-12-4-26-14-26-34V33c6 0 16-2 26-9z" fill="${a}" fill-opacity="0.12" stroke="${a}" stroke-width="1.5" stroke-linejoin="round"/>
+      <path ${DRAW} d="M166 56l7 7 13-13" stroke="${a}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>`,
 };
 
 const SERVICES = [
@@ -146,16 +182,23 @@ function sheet(theme) {
     // ── Services ───────────────────────────────────────────────────────────
     parts.push(heading(y + 50, c, '01 / WHAT WE DO', 'Software and the IT that runs it'));
     const cellsTop = y + 120;
-    const cellH = 212;
+    // Each cell: a line drawing over a fading dot field, the caption below a hairline
+    const artH = 200;
+    const cellH = artH + 150;
     const cellW = IN / SERVICES.length;
+    const scale = 1.15;
     SERVICES.forEach((s, i) => {
+        const x = L + i * cellW;
         parts.push(`
-  <g transform="translate(${L + i * cellW + 32} ${cellsTop + 32})">
-    <rect x="-6" y="-6" width="40" height="40" rx="8" fill="${AMBER}" fill-opacity=".1" stroke="${AMBER}" stroke-opacity=".35"/>
-    <g transform="translate(2 2)" fill="none" stroke="${c.accent}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">${ICONS[s.id]}</g>
-    <text y="72" font-size="20" font-weight="600" fill="${c.text}">${esc(s.title)}</text>
-    ${s.lines.map((l, j) => `<text y="${100 + j * 22}" font-size="15" fill="${c.ter}">${esc(l)}</text>`).join('\n    ')}
-    <text y="156" font-family="${MONO}" font-size="11" letter-spacing="1" fill="${c.accent}">${esc(s.tags)}</text>
+  <mask id="art${i}"><rect x="${x}" y="${cellsTop}" width="${cellW}" height="${artH}" fill="url(#artFade)"/></mask>
+  <rect x="${x}" y="${cellsTop}" width="${cellW}" height="${artH}" fill="url(#dots)" mask="url(#art${i})"/>
+  <g class="art${i}" transform="translate(${x + cellW / 2 - 110 * scale} ${cellsTop + (artH - 120 * scale) / 2}) scale(${scale})" fill="none">${ILLUSTRATIONS[s.id](c.accent, c.muted)}
+  </g>
+  <line x1="${x}" y1="${cellsTop + artH}" x2="${x + cellW}" y2="${cellsTop + artH}" stroke="${c.cell}"/>
+  <g transform="translate(${x + 28} ${cellsTop + artH + 40})">
+    <text font-size="20" font-weight="600" fill="${c.text}">${esc(s.title)}</text>
+    ${s.lines.map((l, j) => `<text y="${28 + j * 22}" font-size="15" fill="${c.ter}">${esc(l)}</text>`).join('\n    ')}
+    <text y="${28 + 2 * 22 + 14}" font-family="${MONO}" font-size="11" letter-spacing="1" fill="${c.accent}">${esc(s.tags)}</text>
   </g>`);
     });
     parts.push(cellRow(cellsTop, cellH, SERVICES.length, c));
@@ -240,11 +283,16 @@ function sheet(theme) {
     @keyframes live { 0% { transform: scale(.6); opacity: .5; } 100% { transform: scale(1.8); opacity: 0; } }
     .pulse { animation: pulse 2.4s ease-out infinite; }
     @keyframes pulse { 0% { transform: scale(1); opacity: .5; } 70%, 100% { transform: scale(2.6); opacity: 0; } }
+    /* Drawn by default; the animation only starts them hidden, so they show even where it never runs */
+    .draw { stroke-dasharray: 1 1; stroke-dashoffset: 0; animation: draw 1.8s cubic-bezier(.16,1,.3,1) .2s backwards; }
+    .art1 .draw { animation-delay: .45s; }
+    .art2 .draw { animation-delay: .7s; }
+    @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
     .breathe { animation: breathe 6s ease-in-out infinite; }
     @keyframes breathe { 0%, 100% { opacity: .4; } 50% { opacity: .55; } }
     .ticker { animation: ticker ${Math.round(groupW / 28)}s linear infinite; }
     @keyframes ticker { to { transform: translateX(-${groupW}px); } }
-    @media (prefers-reduced-motion: reduce) { .scan, .ping, .live, .pulse, .breathe, .ticker { animation: none; } .scan { display: none; } }
+    @media (prefers-reduced-motion: reduce) { .scan, .ping, .live, .pulse, .breathe, .ticker, .draw { animation: none; } .draw { stroke-dashoffset: 0; } .scan { display: none; } }
   </style>
   <defs>
     <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="8" cy="8" r="1.1" fill="${c.dot}"/></pattern>
@@ -254,6 +302,7 @@ function sheet(theme) {
     <linearGradient id="tickerG" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".08" stop-color="#fff"/><stop offset=".92" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
     <mask id="tickerFade"><rect x="${cardX}" y="${tickerY - 28}" width="${cardW}" height="40" fill="url(#tickerG)"/></mask>
     <clipPath id="card"><rect x="${cardX}" y="${cardY}" width="${cardW}" height="${cardH}" rx="10"/></clipPath>
+    <radialGradient id="artFade" cx="0.5" cy="0.5" r="0.6"><stop offset="0.1" stop-color="#fff"/><stop offset="0.8" stop-color="#fff" stop-opacity="0"/></radialGradient>
     <radialGradient id="glow"><stop offset="0" stop-color="${AMBER}"/><stop offset="1" stop-color="${AMBER}" stop-opacity="0"/></radialGradient>
     <linearGradient id="scan" x1="0" x2="1"><stop offset="0" stop-color="${AMBER}" stop-opacity="0"/><stop offset=".6" stop-color="${AMBER}"/><stop offset="1" stop-color="${AMBER}" stop-opacity="0"/></linearGradient>
     <linearGradient id="fill" gradientUnits="userSpaceOnUse" x1="52" y1="0" x2="${STEP_W - 48}" y2="0"><stop offset="0" stop-color="${AMBER}"/><stop offset="1" stop-color="${AMBER}" stop-opacity="0"/></linearGradient>

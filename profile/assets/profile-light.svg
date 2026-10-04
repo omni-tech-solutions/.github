@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1402" viewBox="0 0 960 1402" font-family="'Inter Tight', Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1540" viewBox="0 0 960 1540" font-family="'Inter Tight', Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">OMNI Tech Solutions</title>
   <desc id="d">Software solutions and IT infrastructure for business. We build software for clients in Bulgaria and abroad, and the IT that runs it. What we do: software solutions, IT infrastructure, support and security. How we work: consultation, quote, delivery, support. We reply within 24 hours.</desc>
   <style>
@@ -11,11 +11,16 @@
     @keyframes live { 0% { transform: scale(.6); opacity: .5; } 100% { transform: scale(1.8); opacity: 0; } }
     .pulse { animation: pulse 2.4s ease-out infinite; }
     @keyframes pulse { 0% { transform: scale(1); opacity: .5; } 70%, 100% { transform: scale(2.6); opacity: 0; } }
+    /* Drawn by default; the animation only starts them hidden, so they show even where it never runs */
+    .draw { stroke-dasharray: 1 1; stroke-dashoffset: 0; animation: draw 1.8s cubic-bezier(.16,1,.3,1) .2s backwards; }
+    .art1 .draw { animation-delay: .45s; }
+    .art2 .draw { animation-delay: .7s; }
+    @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
     .breathe { animation: breathe 6s ease-in-out infinite; }
     @keyframes breathe { 0%, 100% { opacity: .4; } 50% { opacity: .55; } }
     .ticker { animation: ticker 35s linear infinite; }
     @keyframes ticker { to { transform: translateX(-992px); } }
-    @media (prefers-reduced-motion: reduce) { .scan, .ping, .live, .pulse, .breathe, .ticker { animation: none; } .scan { display: none; } }
+    @media (prefers-reduced-motion: reduce) { .scan, .ping, .live, .pulse, .breathe, .ticker, .draw { animation: none; } .draw { stroke-dashoffset: 0; } .scan { display: none; } }
   </style>
   <defs>
     <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="8" cy="8" r="1.1" fill="rgba(31,35,40,0.2)"/></pattern>
@@ -23,8 +28,9 @@
     <radialGradient id="fadeG" cx="0.5" cy="0.45" r="0.6"><stop offset="0.1" stop-color="#fff"/><stop offset="0.75" stop-color="#fff" stop-opacity="0"/></radialGradient>
     <mask id="fade"><rect x="40" y="80" width="880" height="300" fill="url(#fadeG)"/></mask>
     <linearGradient id="tickerG" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".08" stop-color="#fff"/><stop offset=".92" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-    <mask id="tickerFade"><rect x="52" y="1332" width="856" height="40" fill="url(#tickerG)"/></mask>
-    <clipPath id="card"><rect x="52" y="1090" width="856" height="300" rx="10"/></clipPath>
+    <mask id="tickerFade"><rect x="52" y="1470" width="856" height="40" fill="url(#tickerG)"/></mask>
+    <clipPath id="card"><rect x="52" y="1228" width="856" height="300" rx="10"/></clipPath>
+    <radialGradient id="artFade" cx="0.5" cy="0.5" r="0.6"><stop offset="0.1" stop-color="#fff"/><stop offset="0.8" stop-color="#fff" stop-opacity="0"/></radialGradient>
     <radialGradient id="glow"><stop offset="0" stop-color="#f9a427"/><stop offset="1" stop-color="#f9a427" stop-opacity="0"/></radialGradient>
     <linearGradient id="scan" x1="0" x2="1"><stop offset="0" stop-color="#f9a427" stop-opacity="0"/><stop offset=".6" stop-color="#f9a427"/><stop offset="1" stop-color="#f9a427" stop-opacity="0"/></linearGradient>
     <linearGradient id="fill" gradientUnits="userSpaceOnUse" x1="52" y1="0" x2="172" y2="0"><stop offset="0" stop-color="#f9a427"/><stop offset="1" stop-color="#f9a427" stop-opacity="0"/></linearGradient>
@@ -32,8 +38,8 @@
 
   <!-- Rails down the whole sheet -->
   <g stroke="#d0d7de" stroke-dasharray="5 4">
-    <line x1="40" y1="0" x2="40" y2="1402"/>
-    <line x1="920" y1="0" x2="920" y2="1402"/>
+    <line x1="40" y1="0" x2="40" y2="1540"/>
+    <line x1="920" y1="0" x2="920" y2="1540"/>
   </g>
 
   <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAji0lEQVR42u19aYBcVbXuWnvvM9TUAZUZjCTpqhDe1ftslPuUa6cBJUyBS+hGSbo7CYH4UERURFDsbkTFAQUuokEy9JAAHQaDJExip5/iVS9xehhT1QEEGQUJdE1n2Huv+6PqVKqqqyodIKGj1t+kqk+ttfcavu9bqwD20ReNtAoAgGx/4hh51+zRzOrpBwMA0DBw+OdrLxl/oPlYefvsZ2nDHPJvTfySVsyYBgBAPcD2le/C9jXjP7qixcC2UZlfHT/BMtlPOMKhzmvSFyF+rIwZ99Lw4SHoBdpXnMD2tZN/zPItvjOYmG+E2UYgjDouacbRcNNSijA/zvMjd8HmVg4AQAT4Twe8icbHtlHpDiXOFSbeTYosKUkzBAYEgIjCSUtpRvg877nnb8U+0LAe2FR3AtuXjJ8fTCw3LbZWSUKlQCNWPj9DFF5G+mZUnO0NxVdhByhY3z6lnTClHUAASD0F4zsDic/ZYfYDz9Naa4Bq4+98oeGlpW/ExBJnKH4DdqxXsLmVE0xNJ0zZk0EECOuBYQcof22iV4R5j5dViggY4s7nJgJCAA1YWX4SkbRiQjjj8muhrtQXg1v0zxswWeP3AmIHKHdd4loR4T1eVslaxucM0LQZ1wS68mih8DJS2k3iCmcgfhm2jcpHV7QY/3TAroxfLB+xD7S3NnGzGeGfcTNSEoCoMr42TESlKee56hd2mDEiUOVXmwi5l1XSivJr8gPxTxyzfIs/1ZzApprxsQ80dADz1ibWGVF+vjsuJQKK8lipibQwkBGCwxm1m4tSx/muesCKcU5EcuclACQN3MtrZYf5jbmB5q6p5gScQmGHIYJ+cvV0+zA7NGyE2OluWkpEFBX/T5MyLcY1wHg+q/8jtjT1U+oBBkcfbkkZeUCE+L+7mcr3EQExDppxZK6jzo50j901VXLClLgBNAwcEfTL189qOswKbTJC7HQ3I/1q42tNyirE+5fcjPpIbGnqpwEsgR3P5EXaP93Pq99YYS6qb4JSwEgTWTa/Lb9m1kewbVQG7/2HdgANA8cOUOMrZx0w7UD+kBFibU5aSgQ0qm6ItiOcSw3PKA+Oj5w39qvgFGMf6OFh4Lj8idfcrHeK9OlPVogLrUnt7BEAlQQgDcIIibu8gcQHpoIT3lIHUE+rwA5QuVUzjwiF+U+Fxd7vZqRk1WGHgLhAVD79LjfunmB1bXusOoR0dICiYeCx85980Xe9edLXT9khzqnMCYjApCRCgghacG9mdfO/YtuopJ63zgn4lhq/b1Q6q2Y0i7B5HzdwpptTE2J+saZXVoTz7Lg6P7o4dQttmmXhKdvdRjfKGUwkuAGjHPEgz9MKEXn555kW40rRC8rDVrt7Wyp43z/EDaCRgvEzA83v4WFzM+c408kqVcv4xXPCfEfrUJhd76yJn4ynbHfrhQ7sAEU9rcLuTCa1q05WBK8Ko7JPQETuOVoJwQ7mFjyQWzXzCCzeoL/7GxCEjlz/7P9j2vRjjvh2x9GKMeTVYae87tcEZBiIgJDzHH1SuDv180aVzM6/Ez/OtNkDpCGkJFE5hKE1KTvMufT1VmeH3xa78Im/BtXY3+UNKIFq/c0nmhY9iIBvd90axgfQnAFqAipPor5PGgjCps1+nFk1872N4neQYMPdqZ/7Dp2FHCQTBUeWPpMhd/NKCovNsfc3N76yYsY0RNB7k0vYa38oIFKcgfiZwipg+Z5Hujw2BwfTMpBpAscyEKksdDAEJn2tGMB+VtjY5KyOz8a+UVkvdAROCHUnH3Cz9DHOkXEGmsqcgIjCzSopbHZMJGbc8/S1e5fQYXvr5B+zfIvvDsYXCZvdSRqMEpa/89QTAEmziTPH0zeAxvdJRS9aFmNE5ZUMcs/VSnA8iIfw/twtR01vFL8DDCiyJHmndNViw2IcazkhI6UZ5h86+JDIHZt7Ya8ROmyvhZ2B+P81bT6oJYHWUBGLi4imMqNCeOPyW6HO1MVW17bHPI2nKKIdRnUSZcidvFJCsOlGhO5P//DIg7AD1HAdJxyzfItPK1oMq3Os38nJi8wQ58hATXBCWkojzE/5YDyxdm8ROnvMAeVYvrc2cakd5Td5ntZKASJUGR9BmxEu3Kz8srUo9XkaBk4rWoxo57bfeDl9OiFkhUBWEY6C+G3ibDtqbtqxevp+HR2g6oUOLGJAoa6xG92Mf4UZ4QIRFFUAqAVCx4jyDmcovhI7QG3ubeV70gl75IPLsXx3KHGVGeFX1sLyNQExBmTajPk5dYnZmbqOeloF9I0qBKCdt2fWhw2b36slGFoDVTqQpBUVwsurn7+cHj/p0Auez0MvIPbVrmRK1OZg/GtmTFxeC28CIN+MCcNLy+utRalP00irgLbCM035G1CB5a9NfNeM8ivrYPmaMwDDYMzJqfPNztR1QX8QfNFSEu3a/pDr0DlcIDFWWcmUxe/jDog23blLQr5tVNFIq7A6U1d4GXmj1SQEAPlV59Jw01KaUXGxOxj/CraNShhp5VM+BFVh+beYUf7pelg+58iQo/Y99dFQZ+qWejV9KYl2pX7kOtRlGKxmJeOkpTQifJ6/C0IeAQjmjioabufWotRFblr1mzFh1HCC8DJKmlHxJWcg/vk9Rejgm2l87AM90gPig4nEkBHh57jjE6+3JtKmwRgxyEtXtdudYxsfXdFiHLN8i9/w81e0GLh8i58fbF5uh8UPfEdLrYGXOzYIHX5GrzEXbltCw+0c2tdrxImhozxMeutm32GE2QInXYlDUSFEKiPEhJNRF4a6Ut8PnmNKOSDoHp++9vDQwYdG1hshfqqXkT5UI5oBlo/wmp+lM0NLkpt3B5cPHOUMxj9jRcW1XlZJAuAIE53gpeV/WotSn2oUv4NwCYe2cD+W/rERFidV5wQiIGSgTYvxfF51hjtTQ5M5MHstBBEBIoJ+ZcWMaYceFt1khPipTlrKauMXsHzONcBf3Yz+8O4av1ROjrQKuzP1HTcje8woFwCkquO3l5a+GRUXuUPxrzaK36WbccEWaaTTZ3k59YgVncglaA3M97Q2TTaQXR0/M3iOt9wBRIC9vYA0MGdWrMl8kJs4103XgpNJ2mHOldZPq7x/fGRp6r8b4jjFXFIzhhcTs92ZuspJy29bsYlJlAANLyOlGRVXOIPxLzSK39gHGnoBcfnzOdN1TpOO/m01ocMKTgDSRFYEb8/3N5+IbaOShtv5W3sD1rezvj7QHlf/W0T5+72c8gBxojwkzIWUOuVndZu1+PE/Bv1Bo1wSnNCa1UzbqKKeVhHqTF3qpdX3q5NoBSEf4V8PCHlq4IThYeC45KlXXcc5RXqUrCZ0EIApCUAKTSPE7s6ubD4WO9arNwpZvOEcEODo+cHmi+yocUMxLgsMjB/hQrr6d69m4dQDliWfa4S7lyvgDAsW/CXrzD9yyVNOuVMqk2g7w471ylmbGLCivNNLV+adUpNnM57PysXh7rH+RvE7eLYdqxPvitowKgR7p5tXCsvAQk2ghUAEAFdJ1mJ1bv0T9NTvO/ZOEh5u59ixXjlD8R4rKnrdjJRAQFZUGNLRj2QzbP5+5299pZ7xCQBhpJVj26jMD8U/YZnsRrQZ+Bm1yUgefAbAqIZeoOpqpng7EBDIX5u4w4jws2pWMhw0E8hkXp1t74KQL1GkP2w+KhTjmznCga6nNUNk5Y2fn1f3ueAtiSaffKnWs+3tMhSpaEB3KPFdM8I/DUDg5/WDO17hCw765NZMXeOXn+TB+BesCP+6l9daa1J2TBheVq23FiY7aBg4tMOEkrKnB1gvABQqmeyPjTCbUMloAhICCDkqPydPCy3e/mDjHFRoCLNrZraYtvEwAkyTvlaAQFZMCD8r1xrnpjoRCiHy9Rr/zWzEypqb5CV+Vt3m59UDqSQ//aBPbs1QT6Herl+Lr1fuUPyrVlR83ctpRRqQIRoFoS1v94q4TC2hbV9w9ZdvkS+lXzvLy6mfW1ExIYkW4jcIERJ351bHP9iIkMe+wr9FFj++xffV6QSQZ4IxKyKEl1U3meemFgEVnP9GjD/pG0DDwOGPQLuKc0RQaIuo8MkIBVy91vtKkEUfaHdt/HozIj7lZZQkqt1c7QqXCf4OrZgxTTaZDwsLW9ysqr4J2iwIunaonDreWjL2u+C0N8pJmf7ESXYTu1vl9A3WwuQXhoeBt9e4jXvEAeUGrGfMXfQIVLPMLMZNb118lRERS9xC7yCw5vUqAm5pebXVmbqyXvgYHgbe0QEqPTDjQNswRoTB5jg5VcG4BYS81vRCNgNzpy1LJhsWBsUm07klkbCXJZPBDXwzjN/QAQSA0NPKsW9UeoOJizXRU3ZX6keTaZ4CKXjN7jM4qT2twk+8sM6I8PZakEXV5wECSTMqhDuurrS7klfXe47AmLlVM48wQsaoEHhkdSVDmpQV4lwq+rPveq3h7ieebuiE4JknGe8LSr0CIPm6HEAEuLm3lbf1jUpvKP55Iyq+IfMqT548wex+/L8aXdvJQBbPrjgkfECs6Q4jzE+uCVkA6MLUSxVvwECZYS7ccXmJ3Z26rl5JWZKmrJrRzMPGqGB4iOtWSlNKhLxHf3KkNzfW1ZiQn+ztL/+MyTiM1UuMbX2j0h2KX21ExDeKMsEQWuLe9KrEvzTiYRv2Cwh6x+rp+x0Ya7rfCPOTa0EWRKQtgaxARZZLSQpCWz+npBXl380PxM+r11xhB6iRnlZhL31iTDs0T2n6m2FWsmolQsfGo2xhbqLBWU2NCPlJGX+kVSCCdgabT/VvnX09IhANQ8PhEJxMYgQAQUTKshiXCp6VDh0XWpL886RPRfFEpn945EF21NoobNZSLaCFssbNy+ltAPSKGeYfcDLVMRyIMdDCZNx31DlWZ2q4bjgq3lRvoPlYNNlPkDAqJenKm1Ws63Pqp39+WZ0Sv3i7+3pKy+AZnP74Gdxit4kot71X5XesRcnPNgIEWW0sP77SjIpPBVh+QIa7jlaC42Hchoec/tnxyagHSvLDW46absesEWFhfeOHuZA+bZNSn2iauRN9l/5gRyZKzpUGJn2tucXWOf3Np9QrKYNy0uwa+5V0YD4xcBmvVFoEhI4R4cdPfzu/jQZnNUEv4O6MNFEPsEIPFO8UIXYXaLK9Hb5nRvln3KFEXyNAkFXEt95W7q1LDBtRsbSWLp8QUUoNjOO7CPXhiEBwdINEXmS4nNXx2UaUNguBR1WXhkWOQFpRIaSnf+Pm8m2RxWPPYsczeT9LJ0tPb68ltNUKgCQwbvM7c/2zWus6IWDVFidHlCPPZgI045WsWmGaRrnmO4wzHeILsA/05p7JMWCB7fKD8QtNmw9oSaA0aEA0vYySZoR/2RlIfK4eIMhoGDj2FRKjmv3CBiPM2730RGk4aVKWiQw5vupl1PGhroIuf1e4jrtq5ntFCEcEx3c5uYnyQ00k7agQylU/y+7Inxhd8tQLNAychoFHliWfkzl9kpL0jG2zCUJbpYiQwDZscU+2P3FMPaFW8OXt7u33qrxeKMpYtaIiQ5pRbnkv+d+w89EhGgY+d7IQTB9oZzBxtv0243ueo3xdJjogCnIW+1Z+MLG81nAIFtimGdNkk3GPCPEPObXg5GLZpjS96KbptMiy5KMB/tPI+LlVzf9uRvgGDrC/6+qKUrAUdmJC+Hl1vzE+vgCXP58rLweDv5G+Zfb/sqMwwhDe4XmVeiJNpC2TMUXwUj4r5zadt31rvZIyqJry/YmldoSt9FwtgQDMCBduTn7ZXpj6SnmdXyjE6ueCEqETj7/NRzZkhNhJNYdDGGjDZNzL6YVWd3JdefXGcv0z3ulFjQfqGp9AW2HOpdJ/yWXk8ZFlyUdppFXUM35plcBAfJ4Z4fcjwf6uV8f4TUL4OX2nMR6dj8ufz1XfqALc2ypiy7Y95uX0KQQwbhhV8hRE5rlaCYYHhCLi/vzN8SPrCbWCExjqTq5ycvIiM8yFaTPhZuQl9sLUV2hFi4FYaBDdtbM/GmA99fIBIhD0AuHC1Mt/e3bHApnXv7AiQtTKWb6vNQ/hoDOYmF9O6KAzlPi11cTf57wqfc7RIKqsx4WBSJq2eq4+KbJ47NnJwMnZNYmzrRCuq6WAqzB+Vq8xz922pLz6anij+me1Gra4nxRYWtUR2kqdcl/DudHl256vCwAGFctg/EpAfM1elLyBhueY0L7VRwTy1sZXGm83lzoved8OdaYu3VXzWWrU1r5zfx9DI4bF3lMttScCzTgg4+j5OX1qaEnqYRppFegNzv435HQ3F+xg11Ul2LXkAIFImsZ8R54YXvr4X3b1pdyBxGJh42olibSqoYBDUGaUCy+jbrQWJS8qhyUmVeatbj5VRPgGXZiWR1ahtihUUr6rf5+jfNt+C5/eUReLKodYip/96IoW491N2XVGiJ3tZZRrRrnlpmWP3Zm6apdOKNols2L2IdY02ixMFnezuqrkBS0EMuCU0Tl9grl47NcIAJBd0/x+M8weRlWrTgZthRmTvn7cy8CHIlWkSgWWP5i4yA6xG3xXa6WrjVNSwHEvp75uLUxeUQ9i3hUpn+uPn2OH+W3S00rrar1RkQRy6BdCmh+Bzj/k6t0u6gEGh7ZwXL7FpxWHhP2mpjuNEJ/npqUERI4AyozwQojqTF23q76nRE6tmTVT2HwDAM5RkiqEZJpIWxZj0qcXQeOZrAC7jv1aOnQG1KyTgTlZpYTBZpoRvI9+OOdtWJQAEgDCcDsrXOfEFXaE3eC5WukaxmcMtBlm3M3qKwrGb98t45fH8HB36nY3r5YZNuOIddTOYfYBn7uNN6ccDYjLt/iv3vTO/eW0pvsNm89zilwCAiARcC+nlGXz73pDiY9D7y52EXWApuE5Zmjx9selpx8QZpFULXtxhsx1tG/E+EEa9H9iVeyeb4Xwbq0Ial7vCBeeo3/56iv8wwd+YmsWNhdJmLWJr5lhfrmbVQpqyA85BzJMxvycvMjsGrvxjUr9dspTEhdbUX5dUXnHJ9yEmBBeVt5hLUy1V6OYpZCxevrBlm1vFDZ7r5NRtQQFvhUVhpeRfx538d3vOC+ZCaD2ejojd23ia6bFLncdrbEK7tFE0o4JIbPqV77kHaxCfbY4eY/nUGc99ZmbVdIM8X/b/23qR9BbMv6NZoRf7mWVhFryQw7ABaKT00sC42PbTvlhNbs1GYxppzwleb2bVleaUS4AK+UpRbWzb0bF2c5Q4lZYDwx6i2V3sTvPr068ywqFRoTJ3uvWNr60Itzw8+pPWmLbAcuSaeidWJpWyjHj15sRfrnnaFXX+Dn1M2H4J4W7tz6NNevkNYnldozVVJ8FFYw7rm4HoNesaeKCoGuu/GOFhIMMfOnSx+yu5J2NEllPD7C+3eQdykj8b9hN/PPlpHxJUGUz7uXU1aaV6oU/AsHc1kLI7G8+ilvsPiHYdDevakMjUSGko7e4f8ufFv3kUy/UFAdMmtsg34wKw8+p+15Kj599WNDz1L3eQ82ftSLGt2upz4hAWzZjgABuXk/Y20NEyjAY1wA5mdcLQktS909GjZBbNfMIFLw51JX66WSmFss5C3co8T0zxi90x6UEQMY4QEXYI8AtN7eIY5Zv8bNrZreYIdgoGB7k5NWEEanyk5pxnfn7L3nq1VrPM1luY2fZrdYbyYPPxb5RGbwXG8IIg4leM8Z73MzEE15M1ITVa2KK0+yKYIfn6Pm7GqYb6WkVbX2jMrdq5hGGLR5gHI/ycn5baMnjk1LOlZP67tr4982w+LifU4oJZJ6nloQ7x/pppFVAKoO4fIufW9P8ITPEN3CA/Wp157VOasC01WLfGnEbhThV7PazcrV5bmppdc+DdU/WztLyO3YTv6Rac1PrpYm0bXMmlX7BzclTo0sf/01jCUhRztI/Oy5s2MQZzpRSa0DMeo46MbJ47NeTIX8qhLZD8SEe4uf4WdUeMHiweVRjH2hnTfxkEWJ3IEHY9ysJmoqTmpF3/GE0du4xN2/xa4adkn5o+n5R295QC0Wo6Hmy8gZrYeriWj3P5CjJtYmbjSg/v5ETiEBbFjKp6Gnl0En2ktS2XckPsQ90ZmXze+wo38QZHurklQJENE1kBPByPg1tsWXbHptUOCpi+LR6uu2J0Byrc9tvysUEzmDibGE26M4BtBXjrKSsrtOdT4bbKO95ZFZ+1ViU+lK9ngcnf7IStxpR/tGaG0wISAgEAnjOybgtsfOffLGh2oCAAQL5g83HMZPfiwRN5SeyFMY0PONnVWvovLEndneSnQgY9Bb4DXfdzKNNw3xMStJSEkyERkCbNmO+p75tLUxdWs9YwXfK3XLUdCNK9wlzIrxeAt9CjLtZdbndmbpmpKdVzO0dVbV6noZkCiIQtBdoOsNMLvKz6l4rVgk2BW7UmggZ7M8tcRIAADTCc3uLAZLxHBF4VBDUlg4DMuSOoxUXeLgIsweytyQOnewkOxEgFfQ6ukikM/OQw5Ouo3qEzRhD0nV4fwAqGvKAVqw+mpPhNnRBhUeGxbiTUZ+0O1PX0EirmNtX2/iTEmaV3tgO+lnPafdzeqRa+IQAqDUgKQiHwqI/1x8/ZzKKZHPhti1uVp1ICDvMwmxwjSE8Nqu6A9/V85aHDUTQMHdU2Z2pq5yM/LZZQ02NCNxztDab+KfdocS1AYMVoKAlfdCq2XW5jaDnYRzRy8nuUFfqe416nt2WJpZKrlsSMS8MD5s2e1+tE8A5EBNITladEV0ytnEyEsDcqsQHzAg+SBoiqhZnG+FCOvqX4hX+YQyUdrujTyrLZ85Q/AdWTCyvnc8K0hcv7fdZnWO9FdVTA25DE2hDIAMOnsyrj9m7sRBqt7ShgeRifG38HTbDzYbJjnayE0hzzTgi4+B6jpwX7t4+OpmdDvn+5hONENuoJRgTUdSSIPZhQ/BToH2r3wi+3lW56g3Fh4yYWDhBTQ3FeeUIF+64/zm7e+xaAID8QHyesNidrEb1FPQ8hJD1PTgr1Lntwd2ZoNltcW6QDLM3zzrcjIlRIXBGdTNDBMFOt3Fy6ASzO/noZCSA2f74GVaI3aXlRCwqaI78nNpgJJNnQW9AU08eTyqpqXsBvHj8bjMi5tcaSQrmwryc6iKkvwmT/wgkGH71dH9QLAC94mVpfnhJ6pHdnfrZbXFukAwjF2x/Rvr+SUrTc7bNeOU6gSIDBNCEFm5yVs6as6udDo+uaDEi3akNKl8biwq24hoRfobfHB9A3P1J9iKDBdAL9NTLusPPqYcn5LPCNAz38poQcACJbSQ5sXTVgbpO0/NOXp34eoz/utXRgfAp1PX4dpXXJ0tNr1SvEyinCnmE358fqE8VlgC2FS2G1Z1c5+TlcsNmnFWtEyjbirvQXRv/PnaAgt7d24obFADxi7e7huBnyrz6pRWZOBdGGjD4w9VrboKRKynpSZWBtmj39t++3iWAr1ue3tZXUCBYi1N/oLw6lRhlqtcJFMpJpYRgR3ADH8ismH1Iw8UaO9cJ3Ozm1GeNcGmdwAQnmFHxcXco/k3s2/0h6gJ+Aww7tmZyPp7mO/T/rTAXmqi8eipGpMq9RUFRoKT+o+95c+1lyWSjkas3PQfUi9/p/uYTQxbbqHWdJBrmQrr699ksP36/87e+0qiSKedsrZi4qiYWVVRMu2n5Zbsz9ZXXcwJL+WxN82GmyUYZx5m+TxMw/OpiQDn6v/O+d1qs64m/vtFVZ294QCMQPsW6x34iXepgAqla+ISIws0pKWz2nkhE/5gG3h2BvvqqurJJyK94afXNWpOQAMi9jJJWVFzlDMQveT2T7NgBqsCDjD0rXThRE2U4C1bnTMC5pBUTQjpqdHzc+/CbYfw3xQGVwqfUBi+nuw2zPqEjQuwDPnfv/mPPHCPgAWrHuMIkpNWZvMxLq5tqTEJiSfgU4d/Jr4kvazQJWa+3aVm+RVIPMG7CFQgY0jqYLalESO2Cfmnj889lT37b8ideI6ovSturIajiMYN1Av2Jj9sx9n0/X4fQiQnhZ9XdxrnJBcVnoPrrBILaPdFvxHhXrUnIklg3pz5qdadun9Tqg9JETYvhx7K3GlG2wH1NEWK1YLmE5d/+SDK5qK0P5O42gnvNAVV87aVWlH+zfGy1AnOPCcPPqEFzYbJrVzsd1q8H1t4B2l83e70RZgtqDeEFHbjMqjPsXXXgxdDx/LcOihxw+H538BCf1xjLVyvNc5PLdqVfmhIOqNIIXWU28StrJdGds1/qJmtR8hPle4LqSQC3HNrC3x3N3GNECtKROsKnhh14YPxXb3rn/pH9Q/cImx/nZOpj+TKrrjMWJi+ZrH7pLckBNeP3SKuwupJf9jLqujpJtFBOxviF7trENY3KyeBLt1ywRRpG9iwvq35Wo4FiWgEBgW3a4p7sqvj7qsW6O5UQcw6O7h/6ibBYPeNrM8KFl5ZXGwuTl9Aw8D1h/D3mAAQgaBtVIz2twlqUvMTPqJV1dvIYXuGHdy5zBhNfbDw6Wtzp0PFMPpvxT/fzekuNBor5PmkG0GSG2cb0mplHBx34SA+UKSH0CDfZe91spRJCV+iX5GVWZ+pK6mkV0PHmTETutRBUi9BxhhK3W1HeMSHWls9+pdXFdlfyhkY7eQJAkFbOOkCG+WZhsjkTAMGdhM5ffE+3hrpSTwIAjK+cNScU4ZtqKSEIQLNgg1e+uBuoEMIUwJ4x/h53QHn8hqMBPS9xjxnlp9TcyYOgzRDjTkafF+pOrmrohKCBGpx1uGmIUcEnAoJlYt0xocxjPfIO5yY+xHGiEqKUPwSSl9eLw92pwb31+wJ7fG1lOaHz4ovZs2VOjdYCwIiA+Y5WZoitdAcS7dhgJ08JEOzc/kwu582TqggIlk/RMORuTilhsGZPe48Q0UMc8SC32lFF/RJj4EtHLwh3pwYDiT3shdde2x1dqrsHZzVJIR4WFh5Tl9DhqGVez7cXp+6bjKrCXZX4FxaGEYb4dq9ssUZJLGAi0xrA84kKaqYyLN9knIgyvqfOCnVtf2hv/7LGXl3eXSJ0Vs46IBTmm2tPsoPmAhERHM9R88KLx/7fpBZrrGw+1oryh4AgJv0qVq0wd4wVmlVNyrYZV0R/87IwP7w0+Yu34mdN9urybkTQNAy86bztL/l5OU/69GS9H1kAgJBh83uya2a3NFzSHSzWOG/sV36ezgBGHi+gsuXaGzbB+CHOpYbnlKtPeKuMv9cdUB6/w0sf/0vOg3lK6efNKkKHBYQOwjTThk1Of/NRu1zSvaLFCC1OjvgOnYwMXMYKUHItRNOOcK40PZ4bhzara+z3bwRO3uccUE7oTOvelnLy+hSlJ+6HLhE6HA/kJrs/vzrxrnpcAhEg7D9DAwBwDv8KAGznwpYqXCfChfT0Y17Wb5t2wbbU6127sE/mgHqQRZkqIlz/RxYo6Tr5udElT71QrtWs0uVfY0b5ZV5aBROOFXCyHRVCOurX+Zw6rem87S+9VT9bMmUcUO6Ewn5ocS8pEkoV4vYEQsfTv83uyJ+w34WF2S/oBSqtVhhKfM+M8gu9zETwr0To5/WIIeWZ2Ll9fCoYf0o4oNwJzprm/xAhfqdSRKQqq5ayCZ1HzPT4R+C55x0AAOgD8tcl1hgR3lVXGl5QU9xruE47LnnK2ds/UzLlckBdQmfx2N3K0d2myRjWn9D5oB9rujuAhP1bE3c2NH6TEH5O3WaI5JkYbGCcIsafMjegmkvID8YvtCP8e15eS6o3oZNWw0hgmdP4Ge5rshrX2YnlZ9QPzYXJC/YElv9354CKcDQQv8yKiWtqETqlCR0AcBxV3fmW6fLVd62Fyc/sKSz/79IB5U5wh+JXm1HxRS8rfaAJP22oio0br4Hlcy+rrrIWJXt2dxb5HzIHTHgFhM6i1Je8tLzBjE7kEhCBlxtfF2BtMgu6/EutRcmePY3l/93egJ31fXGh61B8lRUTS+pN6BThZDAMxnxHf9zsTK6Yqj9hvs84oLrJ8tYmho0Ib68xi6U5B4YctedSV7gruXZfMf6Ud0DJCb2AAK3MT7xwT7DsjzEUWhd1+Qxc19HnRLpTG/Yl40/dHFAZ6wvxu3dUGSK7wMupn9sxIbQi37YKm0d8T58a6U5t2JtEyj/cq/SjDitmTPNvTfwXbZhD8vbZz3oDzccGldM/rbSnnVBEQmndkQepu2aPZlfF37evG/9/AM/8fM48Ybo3AAAAAElFTkSuQmCC" x="68" y="22" width="36" height="36"/>
@@ -61,41 +67,78 @@
   <rect class="ping" x="915.5" y="375.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/>
   <text x="72" y="430" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="13" letter-spacing="1.5" fill="#a86400">01 / WHAT WE DO</text>
   <text x="72" y="470" font-size="32" font-weight="500" letter-spacing="-0.8" fill="#1f2328">Software and the IT that runs it</text>
-  <g transform="translate(72 532)">
-    <rect x="-6" y="-6" width="40" height="40" rx="8" fill="#f9a427" fill-opacity=".1" stroke="#f9a427" stroke-opacity=".35"/>
-    <g transform="translate(2 2)" fill="none" stroke="#a86400" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></g>
-    <text y="72" font-size="20" font-weight="600" fill="#1f2328">Software solutions</text>
-    <text y="100" font-size="15" fill="#6e7781">Web, desktop and mobile apps,</text>
-    <text y="122" font-size="15" fill="#6e7781">websites and online stores.</text>
-    <text y="156" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="1" fill="#a86400">WEB · DESKTOP · MOBILE</text>
+  <mask id="art0"><rect x="40" y="500" width="293.3333333333333" height="200" fill="url(#artFade)"/></mask>
+  <rect x="40" y="500" width="293.3333333333333" height="200" fill="url(#dots)" mask="url(#art0)"/>
+  <g class="art0" transform="translate(60.16666666666667 531) scale(1.15)" fill="none">
+      <rect x="20" y="10" width="180" height="100" rx="8" stroke="#c4ccd4" stroke-width="1.5"/>
+      <circle cx="32" cy="22" r="2.5" fill="#c4ccd4"/><circle cx="41" cy="22" r="2.5" fill="#c4ccd4"/><circle cx="50" cy="22" r="2.5" fill="#c4ccd4"/>
+      <rect class="draw" pathLength="1" x="36" y="38" width="148" height="24" rx="6" fill="#a86400" fill-opacity="0.12" stroke="#a86400" stroke-width="1.5"/>
+      <circle class="draw" pathLength="1" cx="50" cy="50" r="5" stroke="#a86400" stroke-width="1.5"/>
+      <path class="draw" pathLength="1" d="M54 54l4 4" stroke="#a86400" stroke-width="1.5" stroke-linecap="round"/>
+      <rect x="66" y="45" width="80" height="10" rx="3" stroke="#a86400" stroke-width="1" stroke-dasharray="3 3"/>
+      <rect x="36" y="74" width="30" height="24" rx="4" stroke="#c4ccd4" stroke-width="1.5"/>
+      <rect x="76" y="76" width="70" height="7" rx="3" stroke="#c4ccd4" stroke-width="1.5"/>
+      <rect x="76" y="89" width="108" height="7" rx="3" stroke="#c4ccd4" stroke-width="1.5"/>
   </g>
-  <g transform="translate(365.3333333333333 532)">
-    <rect x="-6" y="-6" width="40" height="40" rx="8" fill="#f9a427" fill-opacity=".1" stroke="#f9a427" stroke-opacity=".35"/>
-    <g transform="translate(2 2)" fill="none" stroke="#a86400" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3M12 12V8"/></g>
-    <text y="72" font-size="20" font-weight="600" fill="#1f2328">IT infrastructure</text>
-    <text y="100" font-size="15" fill="#6e7781">Networks and Wi-Fi, PCs and</text>
-    <text y="122" font-size="15" fill="#6e7781">video surveillance, on site.</text>
-    <text y="156" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="1" fill="#a86400">NETWORKS · PCS · CCTV</text>
+  <line x1="40" y1="700" x2="333.3333333333333" y2="700" stroke="#d8dee4"/>
+  <g transform="translate(68 740)">
+    <text font-size="20" font-weight="600" fill="#1f2328">Software solutions</text>
+    <text y="28" font-size="15" fill="#6e7781">Web, desktop and mobile apps,</text>
+    <text y="50" font-size="15" fill="#6e7781">websites and online stores.</text>
+    <text y="86" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="1" fill="#a86400">WEB · DESKTOP · MOBILE</text>
   </g>
-  <g transform="translate(658.6666666666666 532)">
-    <rect x="-6" y="-6" width="40" height="40" rx="8" fill="#f9a427" fill-opacity=".1" stroke="#f9a427" stroke-opacity=".35"/>
-    <g transform="translate(2 2)" fill="none" stroke="#a86400" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></g>
-    <text y="72" font-size="20" font-weight="600" fill="#1f2328">Support and security</text>
-    <text y="100" font-size="15" fill="#6e7781">Monthly maintenance and</text>
-    <text y="122" font-size="15" fill="#6e7781">network security audits.</text>
-    <text y="156" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="1" fill="#a86400">MAINTENANCE · AUDITS</text>
+  <mask id="art1"><rect x="333.3333333333333" y="500" width="293.3333333333333" height="200" fill="url(#artFade)"/></mask>
+  <rect x="333.3333333333333" y="500" width="293.3333333333333" height="200" fill="url(#dots)" mask="url(#art1)"/>
+  <g class="art1" transform="translate(353.5 531) scale(1.15)" fill="none">
+      <path d="M56 58 110 18l54 40v50H56z" stroke="#c4ccd4" stroke-width="1.5" stroke-linejoin="round"/>
+      <path class="draw" pathLength="1" d="M92 72a26 26 0 0 1 36 0" stroke="#a86400" stroke-width="1.75" stroke-linecap="round"/>
+      <path class="draw" pathLength="1" d="M99 80a15 15 0 0 1 22 0" stroke="#a86400" stroke-width="1.75" stroke-linecap="round"/>
+      <circle cx="110" cy="88" r="3" fill="#a86400"/>
+      <rect class="draw" pathLength="1" x="170" y="44" width="26" height="14" rx="4" fill="#a86400" fill-opacity="0.12" stroke="#a86400" stroke-width="1.5"/>
+      <path class="draw" pathLength="1" d="M164 51h6" stroke="#a86400" stroke-width="1.5" stroke-linecap="round"/>
+      <circle class="draw" pathLength="1" cx="190" cy="51" r="2.5" stroke="#a86400" stroke-width="1.25"/>
+      <path d="M24 108h172" stroke="#c4ccd4" stroke-width="1.5" stroke-dasharray="4 4"/>
+  </g>
+  <line x1="333.3333333333333" y1="700" x2="626.6666666666666" y2="700" stroke="#d8dee4"/>
+  <g transform="translate(361.3333333333333 740)">
+    <text font-size="20" font-weight="600" fill="#1f2328">IT infrastructure</text>
+    <text y="28" font-size="15" fill="#6e7781">Networks and Wi-Fi, PCs and</text>
+    <text y="50" font-size="15" fill="#6e7781">video surveillance, on site.</text>
+    <text y="86" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="1" fill="#a86400">NETWORKS · PCS · CCTV</text>
+  </g>
+  <mask id="art2"><rect x="626.6666666666666" y="500" width="293.3333333333333" height="200" fill="url(#artFade)"/></mask>
+  <rect x="626.6666666666666" y="500" width="293.3333333333333" height="200" fill="url(#dots)" mask="url(#art2)"/>
+  <g class="art2" transform="translate(646.8333333333333 531) scale(1.15)" fill="none">
+      <rect x="22" y="14" width="112" height="76" rx="8" stroke="#c4ccd4" stroke-width="1.5"/>
+      <path d="M64 106h28M78 90v16" stroke="#c4ccd4" stroke-width="1.5" stroke-linecap="round"/>
+      <path class="draw" pathLength="1" d="M36 34l4 4 8-8" stroke="#a86400" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="draw" pathLength="1" d="M36 52l4 4 8-8" stroke="#a86400" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="58" y="31" width="62" height="7" rx="3" stroke="#c4ccd4" stroke-width="1.5"/>
+      <rect x="58" y="49" width="48" height="7" rx="3" stroke="#c4ccd4" stroke-width="1.5"/>
+      <rect x="36" y="67" width="12" height="7" rx="2" stroke="#a86400" stroke-width="1" stroke-dasharray="3 3"/>
+      <rect x="58" y="67" width="56" height="7" rx="3" stroke="#c4ccd4" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <path d="M134 56h14" stroke="#c4ccd4" stroke-width="1.5" stroke-dasharray="3 3"/>
+      <path class="draw" pathLength="1" d="M176 24c10 7 20 9 26 9v22c0 20-14 30-26 34-12-4-26-14-26-34V33c6 0 16-2 26-9z" fill="#a86400" fill-opacity="0.12" stroke="#a86400" stroke-width="1.5" stroke-linejoin="round"/>
+      <path class="draw" pathLength="1" d="M166 56l7 7 13-13" stroke="#a86400" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <line x1="626.6666666666666" y1="700" x2="920" y2="700" stroke="#d8dee4"/>
+  <g transform="translate(654.6666666666666 740)">
+    <text font-size="20" font-weight="600" fill="#1f2328">Support and security</text>
+    <text y="28" font-size="15" fill="#6e7781">Monthly maintenance and</text>
+    <text y="50" font-size="15" fill="#6e7781">network security audits.</text>
+    <text y="86" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="11" letter-spacing="1" fill="#a86400">MAINTENANCE · AUDITS</text>
   </g>
   <line x1="40" y1="500" x2="920" y2="500" stroke="#d8dee4"/>
-  <line x1="40" y1="712" x2="920" y2="712" stroke="#d8dee4"/>
-  <line x1="333.3333333333333" y1="500" x2="333.3333333333333" y2="712" stroke="#d8dee4"/><line x1="626.6666666666666" y1="500" x2="626.6666666666666" y2="712" stroke="#d8dee4"/>
-  <rect class="" x="35.5" y="495.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/><rect class="" x="915.5" y="495.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/><rect class="" x="35.5" y="707.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/><rect class="" x="915.5" y="707.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/>
-  <line x1="0" y1="760" x2="960" y2="760" stroke="#d0d7de" stroke-dasharray="5 4"/>
-  <rect class="scan" style="animation-delay:2.4s" x="0" y="759.25" width="360" height="1.5" fill="url(#scan)"/>
-  <rect class="ping" x="35.5" y="755.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/>
-  <rect class="ping" x="915.5" y="755.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/>
-  <text x="72" y="810" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="13" letter-spacing="1.5" fill="#a86400">02 / HOW WE WORK</text>
-  <text x="72" y="850" font-size="32" font-weight="500" letter-spacing="-0.8" fill="#1f2328">From idea to a running system</text>
-  <g transform="translate(64 918)">
+  <line x1="40" y1="850" x2="920" y2="850" stroke="#d8dee4"/>
+  <line x1="333.3333333333333" y1="500" x2="333.3333333333333" y2="850" stroke="#d8dee4"/><line x1="626.6666666666666" y1="500" x2="626.6666666666666" y2="850" stroke="#d8dee4"/>
+  <rect class="" x="35.5" y="495.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/><rect class="" x="915.5" y="495.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/><rect class="" x="35.5" y="845.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/><rect class="" x="915.5" y="845.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/>
+  <line x1="0" y1="898" x2="960" y2="898" stroke="#d0d7de" stroke-dasharray="5 4"/>
+  <rect class="scan" style="animation-delay:2.4s" x="0" y="897.25" width="360" height="1.5" fill="url(#scan)"/>
+  <rect class="ping" x="35.5" y="893.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/>
+  <rect class="ping" x="915.5" y="893.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/>
+  <text x="72" y="948" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="13" letter-spacing="1.5" fill="#a86400">02 / HOW WE WORK</text>
+  <text x="72" y="988" font-size="32" font-weight="500" letter-spacing="-0.8" fill="#1f2328">From idea to a running system</text>
+  <g transform="translate(64 1056)">
     <circle class="pulse" style="animation-delay:0s" cx="6" cy="0" r="6" fill="#f9a427" opacity="0"/>
     <circle cx="6" cy="0" r="3" fill="#f9a427"/>
     <text x="22" y="5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="15" fill="#a86400">01</text>
@@ -105,7 +148,7 @@
     <text y="74" font-size="15" fill="#6e7781">A free talk about</text>
     <text y="96" font-size="15" fill="#6e7781">what you need.</text>
   </g>
-  <g transform="translate(284 918)">
+  <g transform="translate(284 1056)">
     <circle class="pulse" style="animation-delay:0.6s" cx="6" cy="0" r="6" fill="#f9a427" opacity="0"/>
     <circle cx="6" cy="0" r="3" fill="#f9a427"/>
     <text x="22" y="5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="15" fill="#a86400">02</text>
@@ -115,7 +158,7 @@
     <text y="74" font-size="15" fill="#6e7781">Clear scope and price,</text>
     <text y="96" font-size="15" fill="#6e7781">in writing.</text>
   </g>
-  <g transform="translate(504 918)">
+  <g transform="translate(504 1056)">
     <circle class="pulse" style="animation-delay:1.2s" cx="6" cy="0" r="6" fill="#f9a427" opacity="0"/>
     <circle cx="6" cy="0" r="3" fill="#f9a427"/>
     <text x="22" y="5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="15" fill="#a86400">03</text>
@@ -125,7 +168,7 @@
     <text y="74" font-size="15" fill="#6e7781">We build or install and</text>
     <text y="96" font-size="15" fill="#6e7781">keep you informed.</text>
   </g>
-  <g transform="translate(724 918)">
+  <g transform="translate(724 1056)">
     <circle class="pulse" style="animation-delay:1.7999999999999998s" cx="6" cy="0" r="6" fill="#f9a427" opacity="0"/>
     <circle cx="6" cy="0" r="3" fill="#f9a427"/>
     <text x="22" y="5" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="15" fill="#a86400">04</text>
@@ -135,30 +178,30 @@
     <text y="74" font-size="15" fill="#6e7781">We stay on call after</text>
     <text y="96" font-size="15" fill="#6e7781">the handover.</text>
   </g>
-  <line x1="40" y1="880" x2="920" y2="880" stroke="#d8dee4"/>
-  <line x1="40" y1="1030" x2="920" y2="1030" stroke="#d8dee4"/>
-  <line x1="260" y1="880" x2="260" y2="1030" stroke="#d8dee4"/><line x1="480" y1="880" x2="480" y2="1030" stroke="#d8dee4"/><line x1="700" y1="880" x2="700" y2="1030" stroke="#d8dee4"/>
-  <rect class="" x="35.5" y="875.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/><rect class="" x="915.5" y="875.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/><rect class="" x="35.5" y="1025.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/><rect class="" x="915.5" y="1025.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/>
-  <line x1="0" y1="1078" x2="960" y2="1078" stroke="#d0d7de" stroke-dasharray="5 4"/>
-  <rect class="scan" style="animation-delay:3.6s" x="0" y="1077.25" width="360" height="1.5" fill="url(#scan)"/>
-  <rect class="ping" x="35.5" y="1073.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/>
-  <rect class="ping" x="915.5" y="1073.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/>
+  <line x1="40" y1="1018" x2="920" y2="1018" stroke="#d8dee4"/>
+  <line x1="40" y1="1168" x2="920" y2="1168" stroke="#d8dee4"/>
+  <line x1="260" y1="1018" x2="260" y2="1168" stroke="#d8dee4"/><line x1="480" y1="1018" x2="480" y2="1168" stroke="#d8dee4"/><line x1="700" y1="1018" x2="700" y2="1168" stroke="#d8dee4"/>
+  <rect class="" x="35.5" y="1013.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/><rect class="" x="915.5" y="1013.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/><rect class="" x="35.5" y="1163.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/><rect class="" x="915.5" y="1163.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/>
+  <line x1="0" y1="1216" x2="960" y2="1216" stroke="#d0d7de" stroke-dasharray="5 4"/>
+  <rect class="scan" style="animation-delay:3.6s" x="0" y="1215.25" width="360" height="1.5" fill="url(#scan)"/>
+  <rect class="ping" x="35.5" y="1211.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/>
+  <rect class="ping" x="915.5" y="1211.5" width="9" height="9" rx="1.5" fill="#ffffff" stroke="#d0d7de"/>
   <g clip-path="url(#card)">
-    <rect x="52" y="1090" width="856" height="300" fill="#1c1b1b"/>
-    <rect x="52" y="1090" width="856" height="300" fill="url(#cardDots)"/>
-    <ellipse class="breathe" cx="480" cy="1390" rx="420" ry="140" fill="url(#glow)" opacity=".4"/>
-    <text x="480" y="1174" font-size="42" font-weight="500" letter-spacing="-1" text-anchor="middle" fill="#ece3de">Have a project in mind?</text>
-    <text x="480" y="1212" font-size="17" text-anchor="middle" fill="#bcb2ad">We reply to every enquiry within 24 hours, in Bulgarian, English or Turkish.</text>
-    <g transform="translate(308 1242)">
+    <rect x="52" y="1228" width="856" height="300" fill="#1c1b1b"/>
+    <rect x="52" y="1228" width="856" height="300" fill="url(#cardDots)"/>
+    <ellipse class="breathe" cx="480" cy="1528" rx="420" ry="140" fill="url(#glow)" opacity=".4"/>
+    <text x="480" y="1312" font-size="42" font-weight="500" letter-spacing="-1" text-anchor="middle" fill="#ece3de">Have a project in mind?</text>
+    <text x="480" y="1350" font-size="17" text-anchor="middle" fill="#bcb2ad">We reply to every enquiry within 24 hours, in Bulgarian, English or Turkish.</text>
+    <g transform="translate(308 1380)">
       <rect width="160" height="44" rx="8" fill="#f9a427"/>
       <text x="68" y="28" font-size="16" font-weight="600" text-anchor="middle" fill="#18181b">Get in touch</text>
       <path d="M128 22h14m-5-5 5 5-5 5" fill="none" stroke="#18181b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
       <rect x="172" width="172" height="44" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)"/>
       <text x="258" y="28" font-size="16" font-weight="600" text-anchor="middle" fill="#ece3de">Visit the website</text>
     </g>
-    <line x1="52" y1="1332" x2="908" y2="1332" stroke="rgba(255,255,255,0.1)"/>
+    <line x1="52" y1="1470" x2="908" y2="1470" stroke="rgba(255,255,255,0.1)"/>
     <g mask="url(#tickerFade)">
-      <g transform="translate(76 1360)">
+      <g transform="translate(76 1498)">
         <g class="ticker">
           <g><g transform="translate(0 0)"><path d="m0 0 4 4 8-8" transform="translate(0 0)" fill="none" stroke="#f9a427" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><text x="20" y="5" font-size="14" fill="#bcb2ad">Reply within 24 h</text></g><g transform="translate(193.8 0)"><path d="m0 0 4 4 8-8" transform="translate(0 0)" fill="none" stroke="#f9a427" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><text x="20" y="5" font-size="14" fill="#bcb2ad">No subcontractors</text></g><g transform="translate(387.6 0)"><path d="m0 0 4 4 8-8" transform="translate(0 0)" fill="none" stroke="#f9a427" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><text x="20" y="5" font-size="14" fill="#bcb2ad">Written quote</text></g><g transform="translate(551.8 0)"><path d="m0 0 4 4 8-8" transform="translate(0 0)" fill="none" stroke="#f9a427" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><text x="20" y="5" font-size="14" fill="#bcb2ad">Support after handover</text></g><g transform="translate(782.5999999999999 0)"><path d="m0 0 4 4 8-8" transform="translate(0 0)" fill="none" stroke="#f9a427" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><text x="20" y="5" font-size="14" fill="#bcb2ad">Bulgaria and abroad</text></g></g>
           <g transform="translate(992 0)"><g transform="translate(0 0)"><path d="m0 0 4 4 8-8" transform="translate(0 0)" fill="none" stroke="#f9a427" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><text x="20" y="5" font-size="14" fill="#bcb2ad">Reply within 24 h</text></g><g transform="translate(193.8 0)"><path d="m0 0 4 4 8-8" transform="translate(0 0)" fill="none" stroke="#f9a427" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><text x="20" y="5" font-size="14" fill="#bcb2ad">No subcontractors</text></g><g transform="translate(387.6 0)"><path d="m0 0 4 4 8-8" transform="translate(0 0)" fill="none" stroke="#f9a427" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><text x="20" y="5" font-size="14" fill="#bcb2ad">Written quote</text></g><g transform="translate(551.8 0)"><path d="m0 0 4 4 8-8" transform="translate(0 0)" fill="none" stroke="#f9a427" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><text x="20" y="5" font-size="14" fill="#bcb2ad">Support after handover</text></g><g transform="translate(782.5999999999999 0)"><path d="m0 0 4 4 8-8" transform="translate(0 0)" fill="none" stroke="#f9a427" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><text x="20" y="5" font-size="14" fill="#bcb2ad">Bulgaria and abroad</text></g></g>
@@ -167,5 +210,5 @@
       </g>
     </g>
   </g>
-  <rect x="52.5" y="1090.5" width="855" height="299" rx="10" fill="none" stroke="rgba(255,255,255,0.1)"/>
+  <rect x="52.5" y="1228.5" width="855" height="299" rx="10" fill="none" stroke="rgba(255,255,255,0.1)"/>
 </svg>
