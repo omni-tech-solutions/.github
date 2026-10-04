@@ -89,51 +89,25 @@ const defs = (c, id, cx, cy) => `
     </linearGradient>
   </defs>`;
 
-// Pillar icons, 24×24 line drawings in the spirit of lucide (code, network, shield)
-const ICONS = {
-    software: '<path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/>',
-    infrastructure:
-        '<rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3M12 12V8"/>',
-    support:
-        '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
-};
-
-const PILLARS = [
-    { id: 'software', title: 'Software solutions', desc: 'Web, desktop & mobile apps, websites' },
-    { id: 'infrastructure', title: 'IT infrastructure', desc: 'Networks, PCs & video surveillance' },
-    { id: 'support', title: 'Support and security', desc: 'Maintenance plans & security audits' },
-];
-
 function banner(theme) {
     const c = THEMES[theme];
-    const W = 1280;
-    const H = 560;
-    const L = 64; // rails
-    const R = W - 64;
-    const ruleY = 96;
-    const cellsY = 420;
-    const cellW = (R - L) / 3;
-
-    const pillars = PILLARS.map((p, i) => {
-        const x = L + i * cellW;
-        return `
-    <g transform="translate(${x + 32} ${cellsY + 30})">
-      <g fill="none" stroke="${c.accent}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">${ICONS[p.id]}</g>
-      <text y="60" font-size="19" font-weight="600" fill="${c.text}">${esc(p.title)}</text>
-      <text y="86" font-size="15" fill="${c.ter}">${esc(p.desc)}</text>
-    </g>${i > 0 ? `\n    <line x1="${x}" y1="${cellsY}" x2="${x}" y2="${H}" stroke="${c.cell}"/>` : ''}`;
-    }).join('');
+    // Narrower than GitHub's README column (~1140px), so it is shown at full size or larger
+    const W = 960;
+    const H = 372;
+    const L = 40; // rails
+    const R = W - 40;
+    const ruleY = 80;
 
     return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="${FONT}" role="img" aria-labelledby="t d">
   <title id="t">OMNI Tech Solutions</title>
   <desc id="d">Software solutions and IT infrastructure for business. We build software for clients in Bulgaria and abroad, and the IT infrastructure that runs it.</desc>
 ${motion(c)}
-${defs(c, 'b', 0.5, 0.42)}
+${defs(c, 'b', 0.5, 0.45)}
   <rect width="${W}" height="${H}" rx="14" fill="${c.page}"/>
 
   <!-- Dot grid fading out from behind the headline, and a faint warm glow -->
-  <rect x="${L}" y="${ruleY}" width="${R - L}" height="${cellsY - ruleY}" fill="url(#b-dots)" mask="url(#b-mask)"/>
-  <ellipse cx="${W / 2}" cy="240" rx="360" ry="130" fill="url(#b-glow)" opacity="${c.glow}"/>
+  <rect x="${L}" y="${ruleY}" width="${R - L}" height="${H - ruleY}" fill="url(#b-dots)" mask="url(#b-mask)"/>
+  <ellipse cx="${W / 2}" cy="220" rx="300" ry="110" fill="url(#b-glow)" opacity="${c.glow}"/>
 
   <!-- Frame: dashed rails and the rule under the top bar -->
   <g stroke="${c.line}" stroke-dasharray="5 4">
@@ -145,22 +119,16 @@ ${defs(c, 'b', 0.5, 0.42)}
   ${mark(L, ruleY, c, 'ping')}
   ${mark(R, ruleY, c, 'ping ping-late')}
 
-  <!-- Top bar: logo, name, site -->
-  <image href="${logo}" x="${L + 32}" y="28" width="40" height="40"/>
-  <text x="${L + 86}" y="55" font-size="20" font-weight="700" letter-spacing="0.6" fill="${c.text}">OMNI Tech Solutions</text>
-  <text x="${R - 32}" y="55" font-size="16" font-weight="500" text-anchor="end" fill="${c.ter}">tech.omni-solutions.co</text>
+  <!-- Top bar: logo and name -->
+  <image href="${logo}" x="${L + 28}" y="22" width="36" height="36"/>
+  <text x="${L + 76}" y="47" font-size="19" font-weight="700" letter-spacing="0.6" fill="${c.text}">OMNI Tech Solutions</text>
 
   <!-- Tag, headline, one line under it -->
-  <rect x="${W / 2 - 132}" y="140" width="264" height="34" rx="7" fill="none" stroke="${AMBER}" stroke-dasharray="4 3"/>
-  <text x="${W / 2}" y="163" font-size="15" font-weight="500" text-anchor="middle" fill="${c.accent}">Software &amp; IT infrastructure</text>
-  <text x="${W / 2}" y="246" font-size="58" font-weight="500" letter-spacing="-1.4" text-anchor="middle" fill="${c.text}">Software solutions and</text>
-  <text x="${W / 2}" y="310" font-size="58" font-weight="500" letter-spacing="-1.4" text-anchor="middle" fill="${c.text}">IT infrastructure for business</text>
-  <text x="${W / 2}" y="362" font-size="19" text-anchor="middle" fill="${c.sec}">We build software for clients in Bulgaria and abroad, and the IT infrastructure that runs it.</text>
-
-  <!-- The three pillars as a strip of hairline cells on the rails -->
-  <line x1="${L}" y1="${cellsY}" x2="${R}" y2="${cellsY}" stroke="${c.cell}"/>${pillars}
-  ${mark(L, cellsY, c)}
-  ${mark(R, cellsY, c)}
+  <rect x="${W / 2 - 125}" y="116" width="250" height="32" rx="7" fill="none" stroke="${AMBER}" stroke-dasharray="4 3"/>
+  <text x="${W / 2}" y="137" font-size="15" font-weight="500" text-anchor="middle" fill="${c.accent}">Software &amp; IT infrastructure</text>
+  <text x="${W / 2}" y="216" font-size="50" font-weight="500" letter-spacing="-1.2" text-anchor="middle" fill="${c.text}">Software solutions and</text>
+  <text x="${W / 2}" y="274" font-size="50" font-weight="500" letter-spacing="-1.2" text-anchor="middle" fill="${c.text}">IT infrastructure for business</text>
+  <text x="${W / 2}" y="322" font-size="18" text-anchor="middle" fill="${c.sec}">We build software for clients in Bulgaria and abroad, and the IT that runs it.</text>
 
   <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="14" fill="none" stroke="${c.cell}"/>
 </svg>
@@ -168,25 +136,25 @@ ${defs(c, 'b', 0.5, 0.42)}
 }
 
 const STEPS = [
-    { title: 'Consultation', lines: ['We talk through what you need,', 'free and with no commitment.'] },
-    { title: 'Quote', lines: ['A written quote with a clear', 'scope and price.'] },
-    { title: 'Delivery', lines: ['We build or install, and keep', 'you informed throughout.'] },
-    { title: 'Support', lines: ['We stay on call after the', 'project is handed over.'] },
+    { title: 'Consultation', lines: ['A free talk about', 'what you need.'] },
+    { title: 'Quote', lines: ['Clear scope and price,', 'in writing.'] },
+    { title: 'Delivery', lines: ['We build or install and', 'keep you informed.'] },
+    { title: 'Support', lines: ['We stay on call after', 'the handover.'] },
 ];
 
 function processSvg(theme) {
     const c = THEMES[theme];
-    const W = 1280;
-    const H = 230;
-    const L = 64;
-    const R = W - 64;
-    const top = 30;
+    const W = 960;
+    const H = 210;
+    const L = 40;
+    const R = W - 40;
+    const top = 24;
     const cellW = (R - L) / STEPS.length;
 
     const steps = STEPS.map((s, i) => {
         const x = L + i * cellW;
         return `
-    <g transform="translate(${x + 28} ${top + 40})">
+    <g transform="translate(${x + 24} ${top + 38})">
       <circle class="pulse" cx="6" cy="0" r="6" fill="${AMBER}" opacity=".3" style="animation-delay:${i * 0.4}s"/>
       <circle cx="6" cy="0" r="3" fill="${AMBER}"/>
       <text x="22" y="5" font-family="${MONO}" font-size="15" fill="${c.accent}">${String(i + 1).padStart(2, '0')}</text>
